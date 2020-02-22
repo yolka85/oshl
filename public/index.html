@@ -7,6 +7,26 @@
     <title>Sea Battle</title>
 </head>
 <body>
-    <h1>Welcome to the Sea Battle!</h1>
+    <div class="wrapper">
+        <h1 class="heading">Welcome to the Sea Battle!</h1>
+
+        <div class="info-block">
+            <p class="text">Please, enter your shot coordinates</p>
+
+            <form class="coordinate-form" action="" method="post">
+                <div class="input-wrapper">
+                    <label for="x-coordinate">X:</label>
+                    <input id="x-coordinate" class="coordinate-input" type="number" name="x">
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="y-coordinate">Y:</label>
+                    <input id="y-coordinate" class="coordinate-input" type="number" name="y">
+                </div>
+
+                <input class="submit-btn" type="submit" value="Fire!">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
