@@ -1,5 +1,18 @@
 var createError = require('http-errors');
 var express = require('express');
+
+// DataBase
+const MongoClient = require('mongodb').MongoClient;
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017', {useNewUrlParser: true, useUnifiedTopology: true});
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  // we're connected!
+});
+
 var bodyParser = require('body-parser');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -33,18 +46,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-// DataBase
-const MongoClient = require('mongodb').MongoClient;
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true});
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
 });
 
 module.exports = app;
