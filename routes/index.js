@@ -1,9 +1,22 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var router = express.Router();
+var app = express();
+const urlencodedParser = bodyParser.urlencoded({extended: false});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.sendFile(path.join(public, 'index.html'))
+});
+
+app.get("/coordinates", urlencodedParser, function (request, response) {
+   response.sendFile(__dirname + "public/index.html");
+});
+app.post("/", urlencodedParser, function (req, res) {
+   console.log(req.body);
+   if(!req.body) return res.sendStatus(400);
+   console.log(req.body);
+   res.send(`${req.body.x} - ${req.body.y}`);
 });
 
 /*Sea Battle*/
