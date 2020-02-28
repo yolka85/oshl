@@ -43,6 +43,8 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(logger('dev'));
@@ -54,7 +56,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
-app.set('view engine', 'jade');
 
 
 // catch 404 and forward to error handler

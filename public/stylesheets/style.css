@@ -11,6 +11,19 @@ a {
   color: #00B7FF;
 }
 
+.btn{
+  width: 200px;
+  height: 3rem;
+  padding: 1rem 1.5rem;
+  background-color: #1616b5;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .heading{
   font-size: 3rem;
   color: #1616b5;
@@ -50,14 +63,4 @@ a {
   height: 1.5rem;
   padding: 0.25rem 0.5rem;
   margin-bottom: 1rem;
-}
-
-.submit-btn{
-  height: 3rem;
-  padding: 0.25rem 1.5rem;
-  background-color: #1616b5;
-  color: #fff;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  border: none;
 }

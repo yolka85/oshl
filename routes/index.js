@@ -1,22 +1,28 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var router = express.Router();
-var app = express();
-const urlencodedParser = bodyParser.urlencoded({extended: false});
+const seaBattle = createSeaBattle();
+
+router.use(bodyParser.urlencoded({extended: true}));
 
 /* GET home page. */
+// router.get('/', function(req, res, next) {
+//   res.sendFile(path.join(public, 'index.html'))
+// });
 router.get('/', function(req, res, next) {
-  res.sendFile(path.join(public, 'index.html'))
-});
+   res.render('index');
+ });
 
-app.get("/coordinates", urlencodedParser, function (request, response) {
-   response.sendFile(__dirname + "public/index.html");
-});
-app.post("/", urlencodedParser, function (req, res) {
+router.get("/battle", function (req, res){
+   res.render('battle');
+})
+
+router.post("/battle", function (req, res) {
    console.log(req.body);
    if(!req.body) return res.sendStatus(400);
-   console.log(req.body);
-   res.send(`${req.body.x} - ${req.body.y}`);
+   let result = seaBattle(req.body.x) (req.body.y);
+   console.log(result);
+   // res.send(`${req.body.x} - ${req.body.y}`);
 });
 
 /*Sea Battle*/
@@ -55,6 +61,6 @@ function createSeaBattle () {
          }
       };
    
-const seaBattle = createSeaBattle();
+
 
 module.exports = router;
